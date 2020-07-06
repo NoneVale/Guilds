@@ -1,0 +1,17 @@
+name: Guilds
+version: ${version}
+main: net.nighthawkempires.guilds.GuildsPlugin
+description: Nighthawk Empires' Guilds Plugin.
+author: NoneVale_
+api-version: 1.15
+depend: [Core]
+softdepend: [Regions]
+commands:
+  guild:
+    aliases: [g, guilds]
+    usage: </command>
+    description: Guilds Command for Nighthawk Empires' Guilds Plugin
+  guildadmin:
+    aliases: [gadmin]
+    usage: </command>
+    description: Guild Admin Command for Nighthawk Empires' Guilds Plugin
