@@ -43,6 +43,7 @@ public class GuildsPlugin extends JavaPlugin {
     private static PlayerData playerData;
 
     public void onEnable() {
+        //oof
         plugin = this;
         if (getConfigg().getServerType() != ServerType.SETUP) {
             String pluginName = getPlugin().getName();
