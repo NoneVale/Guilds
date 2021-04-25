@@ -59,7 +59,7 @@ public class GuildAdminCommand implements CommandExecutor {
             UserModel user = getUserRegistry().getUser(player.getUniqueId());
             GuildModel guild = user.getGuild();
 
-            if  (!player.hasPermission("ne.guilds.admin")) {
+            if  (!player.hasPermission("ne.guilds.admin") && !player.hasPermission("ne.admin")) {
                 player.sendMessage(getMessages().getChatTag(NO_PERMS));
                 return true;
             }

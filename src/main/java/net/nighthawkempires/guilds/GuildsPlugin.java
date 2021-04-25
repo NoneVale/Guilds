@@ -17,6 +17,8 @@ import net.nighthawkempires.guilds.listeners.GuildListener;
 import net.nighthawkempires.guilds.listeners.InventoryListener;
 import net.nighthawkempires.guilds.listeners.PlayerListener;
 import net.nighthawkempires.guilds.scoreboard.GuildsScoreboard;
+import net.nighthawkempires.guilds.tabcompleters.GuildAdminTabCompleter;
+import net.nighthawkempires.guilds.tabcompleters.GuildTabCompleter;
 import net.nighthawkempires.guilds.task.BoundaryTask;
 import net.nighthawkempires.guilds.task.PowerTask;
 import net.nighthawkempires.guilds.user.registry.MUserRegistry;
@@ -95,11 +97,11 @@ public class GuildsPlugin extends JavaPlugin {
         pm.registerEvents(new GuildListener(), this);
         pm.registerEvents(new InventoryListener(), this);
         pm.registerEvents(new PlayerListener(), this);
-
     }
 
     public void registerTabCompleters() {
-
+        this.getCommand("guild").setTabCompleter(new GuildTabCompleter());
+        this.getCommand("guildadmin").setTabCompleter(new GuildAdminTabCompleter());
     }
 
     public void registerTasks() {

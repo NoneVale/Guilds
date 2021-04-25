@@ -14,14 +14,14 @@ public class PlayerData {
     public List<UUID> boundaryList;
     public List<UUID> bypassList;
 
-    public ConcurrentMap<UUID, GuildModel> locationMap;
+    public HashMap<UUID, String> locationMap;
     public HashMap<UUID, String> warmingUp;
 
     public PlayerData() {
         this.boundaryList = Lists.newArrayList();
         this.bypassList = Lists.newArrayList();
 
-        this.locationMap = Maps.newConcurrentMap();
+        this.locationMap = Maps.newHashMap();
         this.warmingUp = Maps.newHashMap();
     }
 }

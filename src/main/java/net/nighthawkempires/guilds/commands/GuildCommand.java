@@ -331,7 +331,7 @@ public class GuildCommand implements CommandExecutor {
                             }
 
                             GuildModel claimedBy = getGuildRegistry().claimedBy(chunk);
-                            if (guild == claimedBy) {
+                            if (guild.getKey().equals(claimedBy.getKey())) {
                                 guild.unclaim(chunk);
                                 player.sendMessage(getMessages().getChatMessage(GRAY + "You unclaimed land at " + DARK_GRAY + "[" + GOLD
                                         + chunk.getX() + DARK_GRAY + ", " + GOLD + chunk.getZ() + DARK_GRAY + "]" + GRAY + "."));
@@ -391,7 +391,7 @@ public class GuildCommand implements CommandExecutor {
                                 return true;
                             }
 
-                            if (guild == other) {
+                            if (guild.getKey().equals(other.getKey())) {
                                 player.sendMessage(getMessages().getChatMessage(GRAY + "You can not set relation status' with your own guild."));
                                 return true;
                             }
@@ -564,7 +564,7 @@ public class GuildCommand implements CommandExecutor {
                                 return true;
                             }
 
-                            if (guild == other) {
+                            if (guild.getKey().equals(other.getKey())) {
                                 player.sendMessage(getMessages().getChatMessage(GRAY + "You can not set relation status' with your own guild."));
                                 return true;
                             }
@@ -708,7 +708,7 @@ public class GuildCommand implements CommandExecutor {
                             user.setRank(GuildRank.RECRUIT);
 
                             player.sendMessage(getMessages().getChatMessage(GRAY + "You have joined " + other.getColor() + other.getName() + GRAY + "."));
-                            guild.message(getMessages().getChatMessage(GREEN + player.getName() + GRAY + " has joined the guild."), player);
+                            other.message(getMessages().getChatMessage(GREEN + player.getName() + GRAY + " has joined the guild."), player);
                             return true;
                         case "kick":
                             if (guild == null) {
@@ -895,7 +895,7 @@ public class GuildCommand implements CommandExecutor {
                                 return true;
                             }
 
-                            if (guild == other) {
+                            if (guild.getKey().equals(other.getKey())) {
                                 player.sendMessage(getMessages().getChatMessage(GRAY + "You can not set relation status' with your own guild."));
                                 return true;
                             }
@@ -1015,7 +1015,7 @@ public class GuildCommand implements CommandExecutor {
                                 return true;
                             }
 
-                            if (guild == other) {
+                            if (guild.getKey().equals(other.getKey())) {
                                 player.sendMessage(getMessages().getChatMessage(GRAY + "You can not set relation status' with your own guild."));
                                 return true;
                             }

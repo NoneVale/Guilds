@@ -54,8 +54,8 @@ public class PlayerListener implements Listener {
         GuildModel claimedBy = getGuildRegistry().claimedBy(player.getLocation().getChunk());
         boolean inTerritory = false;
         if (claimedBy != null) {
-            if (!getPlayerData().locationMap.containsKey(player.getUniqueId()) || getPlayerData().locationMap.get(player.getUniqueId()) != claimedBy) {
-                getPlayerData().locationMap.put(player.getUniqueId(), claimedBy);
+            if (!getPlayerData().locationMap.containsKey(player.getUniqueId()) || !getPlayerData().locationMap.get(player.getUniqueId()).equals(claimedBy.getKey())) {
+                getPlayerData().locationMap.put(player.getUniqueId(), claimedBy.getKey());
                 player.sendTitle(claimedBy.getColor() + claimedBy.getName(), GRAY + claimedBy.getDescription(), 10, 30, 10);
             }
             inTerritory = true;

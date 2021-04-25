@@ -3,6 +3,7 @@ package net.nighthawkempires.guilds.user;
 import com.google.common.collect.Maps;
 import net.nighthawkempires.core.datasection.DataSection;
 import net.nighthawkempires.core.datasection.Model;
+import net.nighthawkempires.guilds.GuildsPlugin;
 import net.nighthawkempires.guilds.guild.GuildModel;
 import net.nighthawkempires.guilds.guild.GuildRank;
 
@@ -44,7 +45,8 @@ public class UserModel implements Model {
     }
 
     public GuildModel getGuild() {
-        return this.guild;
+        if (this.guild == null) return null;
+        return GuildsPlugin.getGuildRegistry().getGuild(this.guild.getUniqueId());
     }
 
     public void setGuild(GuildModel guild) {

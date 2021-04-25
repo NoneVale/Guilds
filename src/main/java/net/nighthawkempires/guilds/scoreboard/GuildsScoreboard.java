@@ -4,6 +4,7 @@ import net.nighthawkempires.core.CorePlugin;
 import net.nighthawkempires.core.lang.Messages;
 import net.nighthawkempires.core.scoreboard.NEScoreboard;
 import net.nighthawkempires.core.settings.ConfigModel;
+import net.nighthawkempires.core.util.StringUtil;
 import net.nighthawkempires.guilds.GuildsPlugin;
 import net.nighthawkempires.guilds.user.UserModel;
 import org.bukkit.Bukkit;
@@ -41,51 +42,34 @@ public class GuildsScoreboard extends NEScoreboard {
         objective.setDisplayName(CorePlugin.getMessages().getMessage(Messages.SCOREBOARD_HEADER).replaceAll("%SERVER%",
                 CorePlugin.getMessages().getServerTag(getConfig().getServerType())));
         Team top = scoreboard.registerNewTeam("top");
-        top.addEntry(GRAY + " ➛  " + BLUE + "" + BOLD);
+        top.addEntry(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.BLUE);
         top.setPrefix("");
         top.setSuffix("");
         Team middle = scoreboard.registerNewTeam("middle");
-        middle.addEntry(GRAY + " ➛  " + GRAY + "" + BOLD);
+        middle.addEntry(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.GREEN);
         middle.setPrefix("");
         middle.setSuffix("");
         Team bottom = scoreboard.registerNewTeam("bottom");
-        bottom.addEntry(GRAY + " ➛  " + GOLD + "" + BOLD);
+        bottom.addEntry(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.GOLD);
         bottom.setPrefix("");
         bottom.setSuffix("");
 
-        objective.getScore(DARK_GRAY + "" + STRIKETHROUGH + "" + BOLD + "--------------")
-                .setScore(10);
-        objective.getScore(GRAY + "" + BOLD + " Guild" + GRAY + ": ").setScore(9);
-        objective.getScore(GRAY + " ➛  " + BLUE + "" + BOLD).setScore(8);
-        //op.setSuffix(player.getName());
-        if (userModel.getGuild() != null)
-            top.setSuffix(userModel.getGuild().getColor() + userModel.getGuild().getName());
-        else
-            top.setSuffix(GRAY + "None");
-        objective.getScore(DARK_PURPLE + " ").setScore(7);
-        objective.getScore(GRAY + "" + BOLD + " Rank" + GRAY + ": ").setScore(6);
-        objective.getScore(GRAY + " ➛  " + GRAY + "" + BOLD).setScore(5);
-        if (userModel.getGuild() != null)
-            middle.setSuffix(userModel.getRank().getName());
-        else
-            middle.setSuffix(GRAY + "None");
-        objective.getScore(YELLOW + "  ").setScore(4);
-        objective.getScore(GRAY + "" + BOLD + " Power" + GRAY + ": ").setScore(3);
-        objective.getScore(GRAY + " ➛  " + GOLD + "" + BOLD).setScore(2);
-        bottom.setSuffix(String.valueOf(userModel.getPower()));
-        objective.getScore(DARK_GRAY + "" + STRIKETHROUGH + "" + BOLD + "--------------")
+        objective.getScore(ChatColor.GRAY + " Guild" + ChatColor.GRAY + ": ").setScore(9);
+        objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.BLUE).setScore(8);
+        objective.getScore(ChatColor.DARK_PURPLE + " ").setScore(7);
+        objective.getScore(ChatColor.GRAY + " Rank" + ChatColor.GRAY + ": ")
+                .setScore(6);
+        objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.GREEN).setScore(5);
+        objective.getScore(ChatColor.YELLOW + "  ").setScore(4);
+        objective.getScore(ChatColor.GRAY + " Power" + ChatColor.GRAY + ": ").setScore(3);
+        objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.GOLD).setScore(2);
+        objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "━━━━━━━━━━━━━━━━━━━━━━")
                 .setScore(1);
 
         this.taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(CorePlugin.getPlugin(), () -> {
-            if (userModel.getGuild() != null)
-                top.setSuffix(userModel.getGuild().getColor() + userModel.getGuild().getName());
-            else
-                top.setSuffix(GRAY + "None");
-            if (userModel.getGuild() != null)
-                middle.setSuffix(userModel.getRank().getName());
-            else
-                middle.setSuffix(GRAY + "None");
-            bottom.setSuffix(String.valueOf(userModel.getPower()));
+            top.setSuffix((userModel.getGuild() != null ? userModel.getGuild().getColor() + userModel.getGuild().getName() : GRAY + "None"));
+            middle.setSuffix((userModel.getGuild() != null ? AQUA + enumName(userModel.getRank().name()) : GRAY + "None"));
+            bottom.setSuffix(GOLD + "" + userModel.getPower());
         }, 0 , 5);
         Bukkit.getScheduler().scheduleSyncDelayedTask(CorePlugin.getPlugin(), () -> {
             Bukkit.getScheduler().cancelTask(getTaskId());
@@ -95,5 +79,24 @@ public class GuildsScoreboard extends NEScoreboard {
 
     private ConfigModel getConfig() {
         return CorePlugin.getConfigg();
+    }
+
+    private String enumName(String s) {
+        if (s.contains("_")) {
+            String[] split = s.split("_");
+
+            StringBuilder matName = new StringBuilder();
+            for (int i = 0; i < split.length; i++) {
+                matName.append(enumName(split[i]));
+
+                if (i < split.length - 1) {
+                    matName.append(" ");
+                }
+            }
+
+            return matName.toString();
+        }
+
+        return s.toUpperCase().substring(0, 1) + s.substring(1).toLowerCase();
     }
 }

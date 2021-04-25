@@ -1,11 +1,13 @@
 package net.nighthawkempires.guilds.guild.registry;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import net.nighthawkempires.core.datasection.DataSection;
 import net.nighthawkempires.core.datasection.Registry;
 import net.nighthawkempires.guilds.guild.GuildModel;
 import org.bukkit.Chunk;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -43,7 +45,7 @@ public interface GuildRegistry extends Registry<GuildModel> {
     }
 
     default GuildModel claimedBy(Chunk chunk) {
-        for (GuildModel guildModel : getRegisteredData().values()) {
+        for (GuildModel guildModel : getData().values()) {
             if (guildModel.isClaimed(chunk))
                 return guildModel;
         }
@@ -51,11 +53,23 @@ public interface GuildRegistry extends Registry<GuildModel> {
     }
 
     default ImmutableList<GuildModel> getGuilds() {
-        return ImmutableList.copyOf(getRegisteredData().values());
+        return ImmutableList.copyOf(getData().values());
     }
 
     @Deprecated
     Map<String, GuildModel> getRegisteredData();
+
+    default Map<String, GuildModel> getData() {
+        return loadAllFromDb();
+    }
+
+    default ImmutableList<String> getGuildNames() {
+        List<String> names = Lists.newArrayList();
+        for (GuildModel guild : getGuilds()) {
+            names.add(guild.getName());
+        }
+        return ImmutableList.copyOf(names);
+    }
 
     default boolean guildExists(UUID uuid) {
         return fromKey(uuid.toString()).isPresent();

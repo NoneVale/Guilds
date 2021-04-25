@@ -142,7 +142,7 @@ public class GuildListener implements Listener {
 
                     if (attackedGuild != null) {
                         if (userGuild != null) {
-                            if (attackedGuild == userGuild) {
+                            if (attackedGuild.getKey().equals(userGuild.getKey())) {
                                 player.sendMessage(getMessages().getChatMessage(GRAY + "You're not allowed to hurt other members of your guild."));
                                 event.setCancelled(true);
                             } else if (attackedGuild.isAllied(userGuild.getUniqueId())) {
@@ -197,7 +197,7 @@ public class GuildListener implements Listener {
 
                         if (attackedGuild != null) {
                             if (userGuild != null) {
-                                if (attackedGuild == userGuild) {
+                                if (attackedGuild.getKey().equals(userGuild.getKey())) {
                                     player.sendMessage(getMessages().getChatMessage(GRAY + "You're not allowed to hurt other members of your guild."));
                                     event.setCancelled(true);
                                 } else if (attackedGuild.isAllied(userGuild.getUniqueId())) {
@@ -386,7 +386,7 @@ public class GuildListener implements Listener {
 
         if (attackedGuild != null) {
             if (attackerGuild != null) {
-                if (attackedGuild == attackerGuild) {
+                if (attackedGuild.getKey().equals(attackerGuild.getKey())) {
                     attacker.sendMessage(getMessages().getChatMessage(GRAY + "You're not allowed to hurt other members of your guild."));
                     return false;
                 } else if (attackedGuild.isAllied(attackerGuild.getUniqueId())) {

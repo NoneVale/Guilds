@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="417456c2-a3e5-4bcd-b11a-9fb47135d288" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Guilds.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/tabcompleters/GuildAdminTabCompleter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/tabcompleters/GuildTabCompleter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/GuildsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/GuildsPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/commands/GuildAdminCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/commands/GuildAdminCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/commands/GuildCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/commands/GuildCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/data/PlayerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/data/PlayerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/guild/registry/GuildRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/guild/registry/GuildRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/listeners/GuildListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/listeners/GuildListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/listeners/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/listeners/PlayerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/scoreboard/GuildsScoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/scoreboard/GuildsScoreboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/task/BoundaryTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/task/BoundaryTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/user/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nighthawkempires/guilds/user/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="NoneVale &lt;nacole@student.fullsail.edu&gt;" />
         <option value="nacole@stu" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1eL6mt5gPl4vkUuqcgIpJmVfAmo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,17 +57,19 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -54,22 +81,78 @@
       <option name="presentableId" value="Default" />
       <updated>1594088687986</updated>
       <workItem from="1594088689887" duration="514000" />
-      <workItem from="1594234026304" duration="1156000" />
+      <workItem from="1594234026304" duration="2940000" />
+      <workItem from="1594868469822" duration="859000" />
+      <workItem from="1594873539660" duration="58000" />
+      <workItem from="1601066974300" duration="3997000" />
+      <workItem from="1601093361110" duration="599000" />
+      <workItem from="1601191562078" duration="5376000" />
+      <workItem from="1601242874955" duration="600000" />
+      <workItem from="1601432520576" duration="2866000" />
+      <workItem from="1601859619845" duration="599000" />
+      <workItem from="1601917450251" duration="599000" />
+      <workItem from="1602560029056" duration="1614000" />
+      <workItem from="1602662314756" duration="1331000" />
+      <workItem from="1611544095794" duration="606000" />
     </task>
+    <task id="LOCAL-00001" summary="some .idea folder stuf smh">
+      <created>1594242697731</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594242697731</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <created>1594242928874</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594242928874</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="some .idea folder stuf smh" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="583" y="1" key="CommitChangelistDialog2" timestamp="1594242452599">
+    <state x="583" y="1" key="CommitChangelistDialog2" timestamp="1594242928203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="583" y="1" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1594242452599" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1594234239159">
+    <state x="583" y="1" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1594242928203" />
+    <state x="739" y="261" key="FileChooserDialogImpl" timestamp="1594251517817">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594234239159" />
+    <state x="739" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594251517817" />
+    <state width="1877" height="275" key="GridCell.Tab.0.bottom" timestamp="1601229165339">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601229165339" />
+    <state width="1877" height="275" key="GridCell.Tab.0.center" timestamp="1601229165338">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601229165338" />
+    <state width="1877" height="275" key="GridCell.Tab.0.left" timestamp="1601229165338">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601229165338" />
+    <state width="1877" height="275" key="GridCell.Tab.0.right" timestamp="1601229165338">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601229165338" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1601067157272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601067157272" />
+    <state x="552" y="248" key="Vcs.Push.Dialog.v2" timestamp="1594242930718">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="248" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594242930718" />
     <state x="767" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594242320886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -78,5 +161,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="760" y="415" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594242382990" />
+    <state x="342" y="94" key="new project wizard" timestamp="1602805643783">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="94" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1602805643783" />
   </component>
 </project>
