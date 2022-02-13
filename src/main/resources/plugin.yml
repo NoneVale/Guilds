@@ -3,7 +3,7 @@ version: ${version}
 main: net.nighthawkempires.guilds.GuildsPlugin
 description: Nighthawk Empires' Guilds Plugin.
 author: NoneVale_
-api-version: 1.16
+api-version: 1.17
 depend: [Core]
 softdepend: [Regions]
 commands:

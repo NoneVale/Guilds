@@ -63,7 +63,7 @@ public class GuildsScoreboard extends NEScoreboard {
         objective.getScore(ChatColor.YELLOW + "  ").setScore(4);
         objective.getScore(ChatColor.GRAY + " Power" + ChatColor.GRAY + ": ").setScore(3);
         objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + " ➛  " + ChatColor.GOLD).setScore(2);
-        objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "━━━━━━━━━━━━━━━━━━━━━━")
+        objective.getScore(ChatColor.DARK_GRAY + "  " + ChatColor.STRIKETHROUGH + "" + ChatColor.BOLD + "━━━━━━━━━━━━━━━━━━━━")
                 .setScore(1);
 
         this.taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(CorePlugin.getPlugin(), () -> {

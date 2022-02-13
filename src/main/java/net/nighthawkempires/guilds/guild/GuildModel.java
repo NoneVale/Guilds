@@ -235,6 +235,7 @@ public class GuildModel implements Model {
 
     public void setRelation(UUID uuid, GuildRelation relation) {
         this.relations.put(uuid, relation);
+        getGuildRegistry().register(this);
     }
 
     public void setRelation(GuildModel guild, GuildRelation relation) {
