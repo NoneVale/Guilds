@@ -10,6 +10,7 @@ public class AllyUtil {
         GuildModel guild = GuildsPlugin.getUserRegistry().getUser(player.getUniqueId()).getGuild();
         GuildModel targetGuild = GuildsPlugin.getUserRegistry().getUser(target.getUniqueId()).getGuild();
 
+        if (player.getUniqueId().toString().equals(target.getUniqueId().toString())) return true;
         if (targetGuild != null) {
             if (guild != null) {
                 return targetGuild.getKey().equals(guild.getKey()) || guild.isAllied(targetGuild.getUniqueId());

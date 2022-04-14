@@ -293,7 +293,7 @@ public class GuildCommand implements CommandExecutor {
                             }
 
                             chunk = player.getLocation().getChunk();
-                            if (getGuildRegistry().claimedBy(chunk) != guild) {
+                            if (!getGuildRegistry().claimedBy(chunk).getKey().equals(guild.getKey())) {
                                 player.sendMessage(getMessages().getChatMessage("You can only set the guild's home in land claimed by the guild."));
                                 return true;
                             }
@@ -1443,13 +1443,19 @@ public class GuildCommand implements CommandExecutor {
         player.sendMessage(mapBuilder.toString().trim());
         player.sendMessage(getMessages().getMessage(CHAT_FOOTER));
 
+        List<String> shown = Lists.newArrayList();
         StringBuilder guildBuilder = new StringBuilder();
-        guildBuilder.append(WHITE).append("*").append(DARK_GRAY).append(" - ").append(WHITE).append("You").append(DARK_GRAY).append(", ");
+        guildBuilder.append(WHITE + "").append(BOLD).append("*").append(DARK_GRAY).append(" - ").append(WHITE).append("You").append(DARK_GRAY).append(", ");
         if (!guilds.isEmpty()) {
-            guilds.forEach(guildModel -> guildBuilder.append(guildModel.getColor())
-                    .append(guildModel.getName().substring(0, 1).toUpperCase()).append(DARK_GRAY)
-                    .append(" - ").append(guildModel.getColor()).append(guildModel.getName())
-                    .append(DARK_GRAY).append(", "));
+            for (GuildModel guildModel : guilds) {
+                if (!shown.contains(guildModel.getKey())) {
+                    guildBuilder.append(guildModel.getColor())
+                            .append(guildModel.getName().substring(0, 1).toUpperCase()).append(DARK_GRAY)
+                            .append(" - ").append(guildModel.getColor()).append(guildModel.getName())
+                            .append(DARK_GRAY).append(", ");
+                    shown.add(guildModel.getKey());
+                }
+            }
         }
         player.sendMessage(DARK_GRAY + "Keys" + GRAY + ": " +
                 guildBuilder.toString().substring(0, guildBuilder.length() - 2));

@@ -4,6 +4,7 @@ import net.nighthawkempires.core.CorePlugin;
 import net.nighthawkempires.guilds.GuildsPlugin;
 import net.nighthawkempires.guilds.guild.GuildModel;
 import net.nighthawkempires.guilds.user.UserModel;
+import org.bukkit.Chunk;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,6 +12,9 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.util.HashMap;
+import java.util.UUID;
 
 import static net.nighthawkempires.guilds.GuildsPlugin.*;
 import static org.bukkit.ChatColor.*;
@@ -51,18 +55,48 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         UserModel userModel = getUserRegistry().getUser(player.getUniqueId());
 
-        GuildModel claimedBy = getGuildRegistry().claimedBy(player.getLocation().getChunk());
-        boolean inTerritory = false;
-        if (claimedBy != null) {
-            if (!getPlayerData().locationMap.containsKey(player.getUniqueId()) || !getPlayerData().locationMap.get(player.getUniqueId()).equals(claimedBy.getKey())) {
-                getPlayerData().locationMap.put(player.getUniqueId(), claimedBy.getKey());
-                player.sendTitle(claimedBy.getColor() + claimedBy.getName(), GRAY + claimedBy.getDescription(), 10, 30, 10);
-            }
-            inTerritory = true;
-        }
+        Chunk chunk = player.getLocation().getChunk();
+        String chunkKey = chunk.getX() + "-" + chunk.getZ();
 
-        if (!inTerritory) {
-            getPlayerData().locationMap.remove(player.getUniqueId());
+        HashMap<UUID, String> chunkMap = getPlayerData().chunkMap;
+        if (!chunkMap.containsKey(player.getUniqueId())) {
+            chunkMap.put(player.getUniqueId(), chunkKey);
+        } else {
+            String storedKey = chunkMap.get(player.getUniqueId());
+
+            if (!storedKey.equals(chunkKey)) {
+                chunkMap.put(player.getUniqueId(), chunkKey);
+
+                HashMap<UUID, String> locationMap = getPlayerData().locationMap;
+                if (locationMap.containsKey(player.getUniqueId())) {
+                    GuildModel stored = GuildsPlugin.getGuildRegistry().getGuild(UUID.fromString(locationMap.get(player.getUniqueId())));
+
+                    if (!stored.isClaimed(chunk)) {
+                        GuildModel claimed = getGuildRegistry().claimedBy(chunk);
+
+                        boolean inTerritory = false;
+                        if (claimed != null) {
+                            if (stored.getKey().equals(claimed.getKey())) {
+                                locationMap.put(player.getUniqueId(), claimed.getKey());
+                                player.sendTitle(claimed.getColor() + claimed.getName(), GRAY + claimed.getDescription(), 10, 30, 10);
+                            }
+
+                            inTerritory = true;
+                        }
+
+                        if (!inTerritory) {
+                            locationMap.remove(player.getUniqueId());
+                        }
+                    }
+                } else {
+                    GuildModel claimed = getGuildRegistry().claimedBy(chunk);
+
+                    if (claimed != null) {
+                        locationMap.put(player.getUniqueId(), claimed.getKey());
+                        player.sendTitle(claimed.getColor() + claimed.getName(), GRAY + claimed.getDescription(), 10, 30, 10);
+                    }
+                }
+            }
         }
     }
 

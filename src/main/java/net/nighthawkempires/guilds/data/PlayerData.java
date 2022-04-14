@@ -15,6 +15,7 @@ public class PlayerData {
     public List<UUID> bypassList;
 
     public HashMap<UUID, String> locationMap;
+    public HashMap<UUID, String> chunkMap;
     public HashMap<UUID, String> warmingUp;
 
     public PlayerData() {
@@ -22,6 +23,7 @@ public class PlayerData {
         this.bypassList = Lists.newArrayList();
 
         this.locationMap = Maps.newHashMap();
+        this.chunkMap = Maps.newHashMap();
         this.warmingUp = Maps.newHashMap();
     }
 }
